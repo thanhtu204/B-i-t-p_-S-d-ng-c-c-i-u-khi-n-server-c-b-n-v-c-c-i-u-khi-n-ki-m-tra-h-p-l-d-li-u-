@@ -44,37 +44,37 @@ namespace DuAnLamQuen
         {
             string kq = "";
             string gioiTinh = CheckGioiTinh.Checked ? "Nam" : "Nữ";
-            if (txtTen.Text.Length < 8 || txtTen.Text.Length > 16 ||
-         !System.Text.RegularExpressions.Regex.IsMatch(txtTen.Text, @"^[a-zA-Z0-9&!_]+$"))
-            {
-                // Display an error message if the username is invalid
-                bllKetQua.Text = "Tên đăng nhập  tối thiểu 8 ký tự, tối đa 16 ký tự!";
-                return;
-            }
-            if (txtNhapLaiPass.Text != txtPass.Text)
-            {
-                bllKetQua.Text = "Vui lòng nhập lại mật khẩu ban đã nhập lại sai !!!";
-                return;
-            }
+         //   if (txtTen.Text.Length < 8 || txtTen.Text.Length > 16 ||
+         //!System.Text.RegularExpressions.Regex.IsMatch(txtTen.Text, @"^[a-zA-Z0-9&!_]+$"))
+         //   {
+         //       // Display an error message if the username is invalid
+         //       bllKetQua.Text = "Tên đăng nhập  tối thiểu 8 ký tự, tối đa 16 ký tự!";
+         //       return;
+         //   }
+         //   if (txtNhapLaiPass.Text != txtPass.Text)
+         //   {
+         //       bllKetQua.Text = "Vui lòng nhập lại mật khẩu ban đã nhập lại sai !!!";
+         //       return;
+         //   }
             //kt thu nhap
-            double thuNhap = Double.Parse( txtThuNhap.Text);
-            if(thuNhap <=0)
-            {
-                bllKetQua.Text = "Thu nhập phải lớn hơn 0";
-                return;
-            }
-            if (thuNhap >= 1000000 && thuNhap <= 50000000)
-            {
-                // Input is within the valid range
-                // Proceed with your logic here
-            }
-            else
-            {
-                // Input is outside the valid range
-                // Display error message or handle accordingly
-                bllKetQua.Text = "Thu nhập phải nằm trong khoảng từ 1,000,000 đến 50,000,000";
-                return;
-            }
+            //double thuNhap = Double.Parse( txtThuNhap.Text);
+            //if(thuNhap <=0)
+            //{
+            //    bllKetQua.Text = "Thu nhập phải lớn hơn 0";
+            //    return;
+            //}
+            //if (thuNhap >= 1000000 && thuNhap <= 50000000)
+            //{
+            //    // Input is within the valid range
+            //    // Proceed with your logic here
+            //}
+            //else
+            //{
+            //    // Input is outside the valid range
+            //    // Display error message or handle accordingly
+            //    bllKetQua.Text = "Thu nhập phải nằm trong khoảng từ 1,000,000 đến 50,000,000";
+            //    return;
+            //}
             kq += $" <ul> <li><p>Khách hàng: {txtHoTen.Text}</li> </p>";
             kq += $" <li><p>Tên Đăng Nhập: {txtTen.Text}  </p> </li>";
             kq += $" <li><p>Mật Khẩu: {txtPass.Text}  </p> </li>";

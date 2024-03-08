@@ -213,8 +213,9 @@ bllKetQua{
                     <h1 class="bg-success text-white">Thông tin đăng nhập</h1>
                     <div class="form-group">
                         <label for="txtTen">Tên đăng nhập:</label>
-                        <asp:TextBox ID="txtTen" CssClass="form-control" runat="server" OnTextChanged="txtTen_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txtTen" CssClass="form-control" runat="server" MaxLength="16" OnTextChanged="txtTen_TextChanged"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Bạn chưa nhập tên đăng nhập!!!" ForeColor="Red" ControlToValidate="txtTen">(*)</asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="revTenDangNhap" runat="server" ErrorMessage="Tên đăng nhập không hợp lệ !" ControlToValidate="txtTen" ValidationExpression="[\d|\w|!|&|_]{8}[\d|\w|!|&|_]+" ForeColor="#FF0066"></asp:RegularExpressionValidator>
                     </div>
                     <div class="form-group">
                         <label for="txtPass">Mật khẩu:</label>
@@ -227,6 +228,7 @@ bllKetQua{
                         <asp:TextBox type="password" CssClass="form-control" ID="txtNhapLaiPass" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Bạn chưa nhập lại mật khẩu!!!!" ForeColor="Red" ControlToValidate="txtNhapLaiPass">(*)</asp:RequiredFieldValidator>
                         <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtNhapLaiPass" ErrorMessage="Nhập kiểu dữ liệu số" ForeColor="#CC3300" Type="Integer" Operator="DataTypeCheck" ValueToCompare="0">(*)</asp:CompareValidator>
+                        <asp:CompareValidator ID="cpvNLMK0" runat="server" ErrorMessage="Nhập lại mật khẩu không đúng!" ControlToCompare="txtNhapLaiPass" ControlToValidate="txtPass" ForeColor="#FF0066"></asp:CompareValidator>
                     </div>
                     <h1 class="bg-success text-white">Thông tin cá nhân</h1>
                     <div class="form-group">
@@ -245,11 +247,15 @@ bllKetQua{
                         <label for="txtEmail">Email:</label>
                         <asp:TextBox type="email" CssClass="form-control" ID="txtEmail" runat="server"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Bạn chưa nhập email!!!!" ForeColor="Red" ControlToValidate="txtEmail">(*)</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rfvEmail" runat="server"
+     ErrorMessage="Email không hợp lệ" ControlToValidate="txtEmail" ForeColor="#FF0066" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </div>
                     <label for="txtThuNhap">Thu nhập:</label>
                     <asp:TextBox ID="txtThuNhap" CssClass="form-control" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Bạn chưa nhập thu nhập!!!" ForeColor="Red" ControlToValidate="txtThuNhap">(*)</asp:RequiredFieldValidator>
                         <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtNhapLaiPass" ErrorMessage="Nhập kiểu dữ liệu số" ForeColor="#CC3300" Type="Double" Operator="DataTypeCheck" ValueToCompare="0">(*)</asp:CompareValidator>
+                     <asp:RangeValidator ID="rvdThuNhap" runat="server" ErrorMessage="Thu nhập từ 1.000.000vnd đến 5.000.0000vnd" ControlToValidate="txtThuNhap" ForeColor="#FF0066" MaximumValue="50000000" MinimumValue="1000000" Type="Integer"></asp:RangeValidator>
+
 
                     <div class="form-group">
                         <label for="txtGioiTinh">Giới tính:</label>
